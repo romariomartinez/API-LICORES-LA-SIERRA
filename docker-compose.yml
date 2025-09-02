@@ -1,0 +1,28 @@
+services:
+  db:
+    image: mysql:8.4
+    environment:
+      MYSQL_DATABASE: menuapp
+      MYSQL_USER: menu
+      MYSQL_PASSWORD: menu123
+      MYSQL_ROOT_PASSWORD: root123
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      # Fuerza TCP para evitar pasar por el socket y solo dar OK cuando 3306 está listo
+      test: ["CMD", "mysqladmin", "--protocol=TCP", "ping", "-h", "127.0.0.1", "-u", "menu", "-pmenu123"]
+      interval: 5s
+      timeout: 3s
+      retries: 30
+
+  api:
+    build: .
+    env_file: .env
+    depends_on:
+      db:
+        condition: service_healthy
+    ports:
+      - "3000:3000"
+
+volumes:
+  dbdata:
