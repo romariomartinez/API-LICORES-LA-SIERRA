@@ -299,4 +299,4 @@ Distribuido bajo licencia **MIT**. Ver `LICENSE`.
 ---
 
 ## 👤 Autor
-- **Tu Nombre** — <tu@correo.com> — [LinkedIn](https://www.linkedin.com/) • [Portafolio](https://)
+- ROMARIO MARTINEZ  — romariomartiinez@gmail.com  — www.linkedin.com/in/romario-martinez • [Portafolio](https://romariomartinez.com/)
